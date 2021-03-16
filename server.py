@@ -12,19 +12,26 @@ sock.listen(1) # become a server socket, maximum 1 connection
 
 while True:
 
-    print('Server listening on %s:%d ... ' % (ADDR, PORT))
+    try:
 
-    # This will block (wait) until a client connets
-    conn, addr = sock.accept()
+        print('Server listening on %s:%d ... ' % (ADDR, PORT))
 
-    print('Got a connection!')
+        # This will block (wait) until a client connets
+        conn, addr = sock.accept()
+
+        print('Got a connection!')
+
+    except KeyboardInterrupt: 
+        break
+
 
     while True:
 
         try:
             conn.send('A'.encode('utf8'))
-        except:
+            sleep(.01)
+
+        except Exception:
             print('Client quit')
             break;
 
-        sleep(.01)
