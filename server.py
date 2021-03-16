@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
+'''
+Server script for simple client/server example
 
+Copyright (C) Simon D. Levy 2021
+
+MIT License
+'''
 import socket
 from time import sleep
 
