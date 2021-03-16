@@ -25,10 +25,14 @@ def main():
     data = [0]
 
     t = Thread(target=comms, args=(data,))
+    t.setDaemon(True)
     t.start()
 
     while True:
-        print(data[0])
-        sleep(1)
+        try:
+            print(data[0])
+            sleep(.01)
+        except KeyboardInterrupt:
+            break
 
 main()
