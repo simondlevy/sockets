@@ -10,17 +10,21 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.bind((ADDR, PORT))
 sock.listen(1) # become a server socket, maximum 1 connection
 
-print('Server listening on %s:%d ... ' % (ADDR, PORT))
-
 while True:
+
+    print('Server listening on %s:%d ... ' % (ADDR, PORT))
 
     # This will block (wait) until a client connets
     conn, addr = sock.accept()
 
-    print('\nGot a connection!')
+    print('Got a connection!')
 
     while True:
 
-        conn.send('A'.encode('utf8'))
+        try:
+            conn.send('A'.encode('utf8'))
+        except:
+            print('Client quit')
+            break;
 
         sleep(.01)
