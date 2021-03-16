@@ -16,10 +16,9 @@ def comms(data):
 
     while True:
 
-        print(sock.recv(1))
-        stdout.flush()
+        data[0] = sock.recv(1)
 
-        sleep(0.1) # Yield to the main thread
+        sleep(0.001) # Yield to the main thread
 
 def main():
         
@@ -29,6 +28,7 @@ def main():
     t.start()
 
     while True:
+        print(data[0])
         sleep(1)
 
 main()
