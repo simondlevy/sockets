@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from threading import Thread
 from time import sleep
 import socket
@@ -7,36 +9,32 @@ PORT = 20003
 
 def comms(data):
 
-    k = 0
+    # Connect to the client
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    sock.connect((ADDR, PORT))
 
     while True:
 
-        data[0] = k
-
-        k += 1
+        print(sock.recv(1))
 
         sleep(0.1) # Yield to the main thread
         
 if __name__ == '__main__':
 
-    
+    # Connect to the client
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((ADDR, PORT))
 
     while True:
-        sleep(1)
-        print('Client has connected')
-    
-    #sock.send('hello')
 
-    '''
+        print(sock.recv(1))
+
+        sleep(0.1) # Yield to the main thread
+ 
     data = [0]
 
     t = Thread(target=comms, args=(data,))
-    
     t.start()
 
-    for k in range(5):
-        print(data[0])
-        sleep(0.5)
-    '''
+    while True:
+        sleep(1)
