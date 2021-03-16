@@ -20,9 +20,9 @@ def comms(data):
         stdout.flush()
 
         sleep(0.1) # Yield to the main thread
-        
-if __name__ == '__main__':
 
+def main():
+        
     data = [0]
 
     t = Thread(target=comms, args=(data,))
@@ -30,3 +30,5 @@ if __name__ == '__main__':
 
     while True:
         sleep(1)
+
+main()
