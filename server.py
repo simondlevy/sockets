@@ -9,7 +9,7 @@ MIT License
 import socket
 from time import sleep
 
-from common import ADDR, PORT
+from header import ADDR, PORT
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.bind((ADDR, PORT))

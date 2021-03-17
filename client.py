@@ -11,7 +11,7 @@ from time import sleep
 import socket
 from sys import stdout
 
-from common import ADDR, PORT
+from header import ADDR, PORT
 
 def comms(data):
 
@@ -21,13 +21,13 @@ def comms(data):
 
     while True:
 
-        data[0] = sock.recv(1)
+        sock.recv(12)
 
         sleep(0.001) # Yield to the main thread
 
 def main():
         
-    data = [0]
+    data = [0,0,0]
 
     t = Thread(target=comms, args=(data,))
     t.setDaemon(True)
