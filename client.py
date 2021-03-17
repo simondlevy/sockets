@@ -27,16 +27,21 @@ def comms(data):
 
 def main():
         
+    # Create a list to receiver the data
     data = [0,0,0]
 
+    # Start the client on its own thread
     t = Thread(target=comms, args=(data,))
     t.setDaemon(True)
     t.start()
 
+    # Loop until user hits CTRL-C
     while True:
+
         try:
-            print(data)
+            print('%3.3f  %3.3f  %3.3f  ' % tuple(data))
             sleep(.01)
+
         except KeyboardInterrupt:
             break
 

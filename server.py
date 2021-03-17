@@ -27,6 +27,11 @@ while True:
 
         print('Got a connection!')
 
+        # We'll send three arbitrary floating-point values
+        a = 0.01
+        b = 0.02
+        c = 0.03
+
     except KeyboardInterrupt: 
         break
 
@@ -34,7 +39,15 @@ while True:
     while True:
 
         try:
-            conn.send(pack('fff', 1, 2, 3))
+
+            # Pack the values into a binary array and send them
+            conn.send(pack('fff', a, b, c))
+
+            # Increase the values noticeably
+            a += .01
+            b += .01
+            c += .01
+            
             sleep(.01)
 
         except Exception:
