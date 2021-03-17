@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 '''
 Common header for simple client/server example
 
@@ -8,4 +7,4 @@ MIT License
 '''
 
 ADDR = 'localhost' # Change for actual deployment
-PORT = 20000
+PORT = 20001
