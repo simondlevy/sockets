@@ -9,7 +9,7 @@ MIT License
 from threading import Thread
 from time import sleep
 import socket
-from sys import stdout
+from struct import unpack
 
 from header import ADDR, PORT
 
@@ -21,7 +21,7 @@ def comms(data):
 
     while True:
 
-        sock.recv(12)
+        data[0], data[1], data[2] = unpack('=fff', sock.recv(12)) 
 
         sleep(0.001) # Yield to the main thread
 
@@ -35,7 +35,7 @@ def main():
 
     while True:
         try:
-            print(data[0])
+            print(data)
             sleep(.01)
         except KeyboardInterrupt:
             break

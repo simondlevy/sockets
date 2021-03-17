@@ -8,6 +8,7 @@ MIT License
 '''
 import socket
 from time import sleep
+from struct import pack
 
 from header import ADDR, PORT
 
@@ -33,7 +34,7 @@ while True:
     while True:
 
         try:
-            conn.send('A'.encode('utf8'))
+            conn.send(pack('fff', 1, 2, 3))
             sleep(.01)
 
         except Exception:
