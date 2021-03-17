@@ -11,8 +11,7 @@ from time import sleep
 import socket
 from sys import stdout
 
-ADDR = '137.113.118.68' # Change for actual deployment
-PORT = 20003
+from common import ADDR, PORT
 
 def comms(data):
 

@@ -9,8 +9,7 @@ MIT License
 import socket
 from time import sleep
 
-ADDR = '137.113.118.68' # Change for actual deployment
-PORT = 20003
+from common import ADDR, PORT
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.bind((ADDR, PORT))
