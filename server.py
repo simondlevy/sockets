@@ -12,10 +12,12 @@ from struct import pack
 
 from header import ADDR, PORT
 
+# Serve a socket with a maximum of one client
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.bind((ADDR, PORT))
-sock.listen(1) # become a server socket, maximum 1 connection
+sock.listen(1)
 
+# Loop until client quits or user hits CTRL-C
 while True:
 
     try:
@@ -32,9 +34,8 @@ while True:
         b = 0.02
         c = 0.03
 
-    except KeyboardInterrupt: 
+    except KeyboardInterrupt:
         break
-
 
     while True:
 
@@ -47,10 +48,10 @@ while True:
             a += .01
             b += .01
             c += .01
-            
+
+            # Wait a briefly before sending again
             sleep(.01)
 
         except Exception:
             print('Client quit')
-            break;
-
+            break

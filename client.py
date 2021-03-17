@@ -13,22 +13,30 @@ from struct import unpack
 
 from header import ADDR, PORT
 
+
 def comms(data):
+    '''
+    Communications thread
+    '''
 
     # Connect to the client
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.connect((ADDR, PORT))
 
+    # Loop until main thread quits
     while True:
 
-        data[0], data[1], data[2] = unpack('=fff', sock.recv(12)) 
+        # Receive and unpack three floating-point numbers
+        data[0], data[1], data[2] = unpack('=fff', sock.recv(12))
 
-        sleep(0.001) # Yield to the main thread
+        # Yield to the main thread
+        sleep(0.001)
+
 
 def main():
-        
+
     # Create a list to receiver the data
-    data = [0,0,0]
+    data = [0, 0, 0]
 
     # Start the client on its own thread
     t = Thread(target=comms, args=(data,))
@@ -44,5 +52,6 @@ def main():
 
         except KeyboardInterrupt:
             break
+
 
 main()
