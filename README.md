@@ -22,7 +22,7 @@ In the client window you should see a stream of three floating-point values that
 
 ##  Example use
 
-Modifying this code for use your robot, internet-of-things, or remote-sensing project should be easy.
+Modifying this code for use in your robot, internet-of-things, or remote-sensing project should be easy.
 After cloning the repository on your server computer (e.g., RaspberryPi) and your client computer (e.g., laptop),
 modify the ```ADDR``` value in
 [header.py](https://github.com/simondlevy/sockets/blob/master/header.py#L9) on both computers to 
