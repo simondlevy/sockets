@@ -1,7 +1,7 @@
 This repository contains Python code showing how you can combine three Python packages
-([Sockets](https://docs.python.org/3/library/socket.html),
-[Threads](https://docs.python.org/3/library/threading.html), and
-[Binary data packing / unpacking](https://docs.python.org/3/library/struct.html))
+([sockets](https://docs.python.org/3/library/socket.html),
+[threads](https://docs.python.org/3/library/threading.html), and
+[binary data packing / unpacking](https://docs.python.org/3/library/struct.html))
 to send data from a server to a client:
 
 ##  Quickstart
